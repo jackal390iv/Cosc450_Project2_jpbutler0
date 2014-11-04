@@ -10,7 +10,7 @@ if __name__ == "__main__":
     
     print "you've entered: ", location
     
-    file = open(location)
+    file = open("root/home/walter")
     
     print file.read()
    
