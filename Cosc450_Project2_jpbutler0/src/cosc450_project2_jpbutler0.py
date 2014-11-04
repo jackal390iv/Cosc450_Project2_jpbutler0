@@ -2,8 +2,15 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 
-__author__="walter"
-__date__ ="$Nov 3, 2014 7:54:21 PM$"
+__author__="Jonathan Butler"
 
 if __name__ == "__main__":
-    print "Hello World"
+    
+    location = raw_input("Please enter the location of the data.txt file: ");
+    
+    print "you've entered: ", location
+    
+    file = open(location)
+    
+    print file.read()
+   
