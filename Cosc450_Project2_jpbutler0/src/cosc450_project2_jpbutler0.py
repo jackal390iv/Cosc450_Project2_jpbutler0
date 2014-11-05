@@ -10,7 +10,24 @@ if __name__ == "__main__":
     
     print "you've entered: ", location
     
-    file = open("root/home/walter")
+    file = open("G:\data.txt","r") 
+    array = []  
+    for line in file:
+        array.extend([int(num) for num in line.split()])
+    file.close()
     
-    print file.read()
+    if len(array)%10 != 0:
+        print("ERROR: Incorrect number of integers.")
+        exit()
+    
+    sliceMatrix1 = slice(0,(len(array)/2))
+    sliceMatrix2 = slice((len(array)/2), len(array))
+    
+    matrix1 = array[sliceMatrix1]
+    matrix2 = array[sliceMatrix2]
+    
+    print(array)
+    print(matrix1)
+    print(matrix2)
+    print("////////////////////////////////////////////////////////////////////////////////////")
    
