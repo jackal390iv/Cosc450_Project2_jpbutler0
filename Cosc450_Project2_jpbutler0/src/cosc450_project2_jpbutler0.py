@@ -2,7 +2,7 @@ __author__="Jonathan Butler"
 
 if __name__ == "__main__":
     
-    location = raw_input("Please enter the location of the data.txt file. For example 'C:\...Desktop\data.txt' or '/home/.../Desktop/data.txt': ");    
+    """location = raw_input("Please enter the location of the data.txt file. For example 'C:\...Desktop\data.txt' or '/home/.../Desktop/data.txt': ");"""    
     location = "G:\data.txt"    
     try:
         file = open(location,"r") 
@@ -28,7 +28,7 @@ if __name__ == "__main__":
     tmp=0
     for i in range(0,5):
         matrixA.append([])
-        for j in xrange((len(array)/2)/5):
+        for k in range((len(array)/2)/5):
             matrixA[i].append(matrix1[tmp])
             tmp=tmp+1
             
@@ -36,19 +36,28 @@ if __name__ == "__main__":
     tmp=0
     for i in range((len(array)/2)/5):
         matrixB.append([])
-        for j in xrange(0,5):
+        for k in range(0,5):
             matrixB[i].append(matrix2[tmp])
             tmp=tmp+1
+                           
+    matrixC = [[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]
+                    
+    for i in range(5):
+        for j in range(5):
+            for k in range((len(array)/2)/5):
+                matrixC[i][j] += matrixA[i][k] * matrixB[k][j]
+                
+   
+    print("Matrix A")
+    for scan in matrixA:
+        print(scan)
         
-    matrixC = []
-    tmp=0
-    for i in range(0,5):
-        matrixC.append([])
-        for j in xrange(0,5):
-            matrixC[i].append(1)
-            tmp=tmp+1
+    print("Matrix B")
+    for scan in matrixB:
+        print(scan)
+   
+    print("Matrix C")
+    for scan in matrixC:
+        print(scan)
     
-    print(array)
-    print(matrixA)
-    print(matrixB)
-    print(matrixC)
+    
