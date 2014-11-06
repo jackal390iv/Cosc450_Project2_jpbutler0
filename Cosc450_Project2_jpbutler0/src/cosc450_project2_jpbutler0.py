@@ -2,8 +2,8 @@ __author__="Jonathan Butler"
 
 if __name__ == "__main__":
     
-    """location = raw_input("Please enter the location of the data.txt file. For example 'C:\...Desktop\data.txt' or '/home/.../Desktop/data.txt': ");"""    
-    location = "G:\data.txt"    
+    location = raw_input("Please enter the location of the data.txt file. For example 'C:\...Desktop\data.txt' or '/home/.../Desktop/data.txt': ");  
+    """location = "G:\data.txt"""    
     try:
         file = open(location,"r") 
         array = []  
@@ -46,18 +46,27 @@ if __name__ == "__main__":
         for j in range(5):
             for k in range((len(array)/2)/5):
                 matrixC[i][j] += matrixA[i][k] * matrixB[k][j]
-                
-   
-    print("Matrix A")
-    for scan in matrixA:
-        print(scan)
+                                
+    location = raw_input("Please enter the save location of the output.txt file (please note that this will overwrite other files). For example 'C:\...Desktop\data.txt' or '/home/.../Desktop/data.txt': ");  
+    """location = "G:\output.txt"""    
+    try:
+        file = open(location,"w") 
         
-    print("Matrix B")
-    for scan in matrixB:
-        print(scan)
-   
-    print("Matrix C")
-    for scan in matrixC:
-        print(scan)
+        file.write("Matrix A\n")
+        for scan in matrixA:
+            file.write(str(scan)+"\n")
     
+        file.write("\nMatrix B\n")
+        for scan in matrixB:
+            file.write(str(scan)+"\n")
+            
+        file.write("\nMatrix C\n")
+        for scan in matrixC:
+            file.write(str(scan)+"\n")
+    
+        file.close()
+    except:
+        print("ERROR: file could not be written to.")
+        exit()
+   
     
